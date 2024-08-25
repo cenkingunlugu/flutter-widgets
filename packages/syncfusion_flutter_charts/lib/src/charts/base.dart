@@ -121,7 +121,7 @@ class ChartAreaRenderObjectElement extends MultiChildRenderObjectElement {
 
   void _scheduleUpdate() {
     if (!_hasUpdateScheduled && !dirty) {
-      markNeedsPaint();
+      markNeedsBuild();
       _hasUpdateScheduled = true;
     }
   }
@@ -1399,7 +1399,7 @@ class RenderCartesianChartPlotArea extends RenderChartPlotArea {
           axisDependent.isTransposed = isTransposed;
         }
       });
-      markNeedsPaint();
+      markNeedsLayout();
     }
   }
 
@@ -1707,7 +1707,7 @@ class RenderCartesianChartPlotArea extends RenderChartPlotArea {
       }
     });
     super.performUpdate();
-    markNeedsPaint();
+    markNeedsLayout();
   }
 
   @override
@@ -2372,7 +2372,7 @@ class RenderCircularChartPlotArea extends RenderChartPlotArea {
   set centerX(String value) {
     if (_centerX != value) {
       _centerX = value;
-      markNeedsPaint();
+      markNeedsLayout();
     }
   }
 
@@ -2381,7 +2381,7 @@ class RenderCircularChartPlotArea extends RenderChartPlotArea {
   set centerY(String value) {
     if (_centerY != value) {
       _centerY = value;
-      markNeedsPaint();
+      markNeedsLayout();
     }
   }
 
@@ -2739,7 +2739,7 @@ class RenderAnnotationArea extends RenderStack with ChartAreaUpdateMixin {
   set annotations(List<CartesianChartAnnotation>? value) {
     if (_annotations != value) {
       _annotations = value;
-      markNeedsPaint();
+      markNeedsLayout();
     }
   }
 
@@ -2748,7 +2748,7 @@ class RenderAnnotationArea extends RenderStack with ChartAreaUpdateMixin {
   set isTransposed(bool value) {
     if (_isTransposed != value) {
       _isTransposed = value;
-      markNeedsPaint();
+      markNeedsLayout();
     }
   }
 
@@ -2762,7 +2762,7 @@ class RenderAnnotationArea extends RenderStack with ChartAreaUpdateMixin {
   @override
   void update() {
     super.update();
-    markNeedsPaint();
+    markNeedsLayout();
   }
 
   @override
@@ -3004,7 +3004,7 @@ class RenderCircularAnnotationArea extends RenderStack
   set annotations(List<CircularChartAnnotation>? value) {
     if (_annotations != value) {
       _annotations = value;
-      markNeedsPaint();
+      markNeedsLayout();
     }
   }
 
@@ -3141,7 +3141,7 @@ class RenderLoadingIndicator extends RenderProxyBox
   set isTransposed(bool value) {
     if (_isTransposed != value) {
       _isTransposed = value;
-      markNeedsPaint();
+      markNeedsLayout();
     }
   }
 
@@ -3150,7 +3150,7 @@ class RenderLoadingIndicator extends RenderProxyBox
   set isInversed(bool value) {
     if (_isInversed != value) {
       _isInversed = value;
-      markNeedsPaint();
+      markNeedsLayout();
     }
   }
 
